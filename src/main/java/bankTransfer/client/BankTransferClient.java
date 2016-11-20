@@ -24,7 +24,7 @@ public class BankTransferClient
     public Response consumeLogin()
     {
         WebTarget login = client.target("http://localhost:18181")
-                .path("login").path("auth");
+                .path("api").path("login").path("test");
         Invocation.Builder invocationBuilder =
                 login.request(MediaType.TEXT_PLAIN);
         Response response = invocationBuilder.get();
