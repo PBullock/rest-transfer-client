@@ -2,6 +2,7 @@ package bankTransfer;
 
 import bankTransfer.client.BankTransferClient;
 import bankTransfer.resources.LoginResource;
+import bankTransfer.resources.RegisterResource;
 import io.dropwizard.Application;
 import io.dropwizard.assets.AssetsBundle;
 import io.dropwizard.client.JerseyClientBuilder;
@@ -23,6 +24,7 @@ public class BankTransferApp extends Application<BankTransferConf>
         final Client client = setupClient(environment);
         environment.jersey().register(new BankTransferClient(client));
         environment.jersey().register(new LoginResource());
+        environment.jersey().register(new RegisterResource());
 
     }
 
@@ -36,6 +38,4 @@ public class BankTransferApp extends Application<BankTransferConf>
     {
         bankTransferConfBootstrap.addBundle(new AssetsBundle("/assets/", "/"));
     }
-
-
 }

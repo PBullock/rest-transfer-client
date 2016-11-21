@@ -2,9 +2,6 @@ package bankTransfer.bankService;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-/**
- * Created by Peter on 20/11/2016.
- */
 public class UserService {
     @JsonProperty
     private String userName;
@@ -12,10 +9,20 @@ public class UserService {
     @JsonProperty
     private String userType;
 
+    @JsonProperty
+    private String userPassword;
+
     public UserService(String userName, String userType)
     {
         this.userName = userName;
         this.userType = userType;
+    }
+
+    public UserService(String userName, String userType, String userPassword)
+    {
+        this.userName = userName;
+        this.userType = userType;
+        this.userPassword = userPassword;
     }
 
     public String getUserName() {
@@ -32,5 +39,13 @@ public class UserService {
 
     public void setUserType(String userType) {
         this.userType = userType;
+    }
+
+    public String getUserPassword() {
+        return userPassword;
+    }
+
+    public void setUserPassword(String userPassword) {
+        this.userPassword = userPassword;
     }
 }
