@@ -20,4 +20,14 @@ public class LoginResource extends JerseyClient
         UserService userService = new UserService("test_user","customer");
         return Response.ok(userService).build();
     }
+
+
+    @Path("/test")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response test()
+    {
+        UserService userService = new UserService("test1","test2");
+        return Response.ok(userService).build();
+    }
 }
