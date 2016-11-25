@@ -1,0 +1,40 @@
+package bankTransfer.resources;
+
+import bankTransfer.bankService.UserService;
+import org.glassfish.jersey.client.JerseyClient;
+
+import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+
+@Path("user")
+public class UserAccountResource extends JerseyClient
+{
+    @Path("/account")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getUserAccount() {
+        return Response.ok(new UserService("test1", "test2")).build();
+    }
+
+    @Path("/account")
+    @POST
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response createUserAccount() {
+        return Response.ok(new UserService("test1", "test2")).build();
+    }
+
+    @Path("/account")
+    @PUT
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response editUserAccount() {
+        return Response.ok(new UserService("test1", "test2")).build();
+    }
+
+    @Path("/account")
+    @DELETE
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response deleteUserAccount() {
+        return Response.ok(new UserService("test1", "test2")).build();
+    }
+}
