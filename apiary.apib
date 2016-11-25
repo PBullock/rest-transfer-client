@@ -13,22 +13,30 @@ GUI für Bank App bietet zugriff an folgende MicroServices an.
 
         [
             {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 2048
-                    }, {
-                        "choice": "Python",
-                        "votes": 1024
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 512
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 256
-                    }
-                ]
+                
             }
         ]
+        
+        
+## Konto Actions [/account]
+
+### Get Konto Liste [GET]
++ Response 200 (application/json)
+
+### Create Konto [POST]
++ Response 200 (application/json)
+
+### Update Konto [PUT]
++ Response 200 (application/json)
+
+### Konto Schliessen [DELETE]
++ Response 200 (application/json) 
+
+
+## Transfer Actions [/transfer]
+
+### Neue Überweisung [POST]
++ Response 200 (application/json) 
+
+### Überweisung Stornierung [DELETE]
++ Response 200 (application/json)
