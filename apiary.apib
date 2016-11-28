@@ -5,23 +5,70 @@ HOST: http://localhost:18181/api
 
 GUI für Bank App bietet zugriff an folgende MicroServices an. 
 
-## User Actions [/user]
+
+
+
+## User Actions [/register/user]
+Class: ```RegisterResource``` <br>
+Alle Links die mit der Nutzer Konto verbindet sind.
+
+
+### User Login [POST]
+
+Nutzer Login mit registrierte und akzeptierte Konto Detailen.
++ Response 200 (application/json)
+    
+    {
+        success:true
+    }
+    
++ Response 401 (application/json)
+    
+    {
+        success:true
+    }
+
 
 ### Show User Details [GET]
-
+ Liefert Nutzer Detailen.         
 + Response 200 (application/json)
 
         [
             {
-                
+                "user_id":123,
+                "user_name": "blah",
+                "user_account" : 123123
             }
         ]
-        
+### Create User Account/Logon [POST]
+    user account to login to website
++ Request (application/json)
+
+        {
+            "name":"test_name",
+            "email": "test_email",
+            "password":"test_password"
+        }
+
++ Response (application/json)
+
+        {
+            "name":"test_name",
+            "email": "test_email",
+            "password":"test_password"
+        }
         
 ## Konto Actions [/account]
 
 ### Get Konto Liste [GET]
+    Suche nach kontos, basiert auf nutzer etc 
 + Response 200 (application/json)
+        
+        {
+            "user_id":123,
+            "user_name": "blah",
+            "user_account" : 123123
+        }
 
 ### Create Konto [POST]
 + Response 200 (application/json)
@@ -33,7 +80,7 @@ GUI für Bank App bietet zugriff an folgende MicroServices an.
 + Response 200 (application/json) 
 
 
-## Transfer Actions [/transfer]
+## Transfer Actions [/user/transfer]
 
 ### Neue Überweisung [POST]
 + Response 200 (application/json) 
