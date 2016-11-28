@@ -3,7 +3,9 @@
 <title>Ihr Onlinebanking</title>
 <head>
 	<meta charset="utf-8">  
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="/css/style.css">
+	<script src="/js/jquery-1.11.3.js"></script>
+
 </head>
 <body>
 	<div id="wrapper">
@@ -20,7 +22,16 @@
 			<div id="uebersicht">
 			<p>Ihr aktueller Kontostand beträgt <!-- code zum fetchen des Bankkontos --> Euro</p>
 			</div>
+
+			<form class="register-form">
+				<input name="name" type="text" placeholder="Name:"/>
+				<input name="first_name" type="text" placeholder="First Name:"/>
+				<input type="submit" id="test-btn" value="Register->" onclick="return false;">
+			</form>
+
+			<div id="user-container"></div>
 		</div>
 	</div>
 </body>
+<script src="/js/mainApp.js"></script>
 </html>
