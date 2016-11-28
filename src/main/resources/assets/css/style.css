@@ -1,3 +1,23 @@
-.test-div {
-    background-color:red;
+body{
+margin: 0px;
+padding: 0px;
+}
+#wrapper{
+	background-color:#f2f2f2;
+	width:100%;
+}
+#header{
+	height:150px;
+	background-color:blue;
+}
+#sidebar{
+	width:35%;
+	float:left;
+	background-color:red;
+}
+#main{
+	background-color:green;
+}
+#nav a{
+	cursor:pointer;
 }
