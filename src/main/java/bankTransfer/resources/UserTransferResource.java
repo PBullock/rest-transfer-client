@@ -36,6 +36,11 @@ public class UserTransferResource {
     @DELETE
     @Produces(MediaType.APPLICATION_JSON)
     public Response deleteUserAccount() {
+
+        //@QueryParam transfer_id
+        // delete transfer using transfer id
+        //request sent to transfer microservice
+
         return Response.ok(new TransferService()).build();
     }
 

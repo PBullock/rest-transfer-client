@@ -7,9 +7,13 @@ import bankTransfer.resources.UserAccountResource;
 import bankTransfer.resources.UserTransferResource;
 import io.dropwizard.Application;
 import io.dropwizard.assets.AssetsBundle;
+import io.dropwizard.auth.AuthDynamicFeature;
+import io.dropwizard.auth.AuthValueFactoryProvider;
+import io.dropwizard.auth.basic.BasicCredentialAuthFilter;
 import io.dropwizard.client.JerseyClientBuilder;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
+import org.glassfish.jersey.server.filter.RolesAllowedDynamicFeature;
 
 import javax.ws.rs.client.Client;
 
@@ -30,6 +34,15 @@ public class BankTransferApp extends Application<BankTransferConf>
         environment.jersey().register(new UserTransferResource());
         environment.jersey().register(new UserAccountResource());
 
+        environment.jersey().register(new AuthDynamicFeature(
+                new BasicCredentialAuthFilter.Builder<User>()
+                        .setAuthenticator(new BankRegisterAuthenticator())
+                        .setAuthorizer(new BankRegisterAuthorizer())
+                        .setRealm("SUPER SECRET STUFF")
+                        .buildAuthFilter()));
+        environment.jersey().register(RolesAllowedDynamicFeature.class);
+        //If you want to use @Auth to inject a custom Principal type into your resource
+        environment.jersey().register(new AuthValueFactoryProvider.Binder<>(User.class));
     }
 
     private Client setupClient(Environment environment)

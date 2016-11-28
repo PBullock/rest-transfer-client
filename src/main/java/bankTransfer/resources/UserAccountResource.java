@@ -21,6 +21,9 @@ public class UserAccountResource extends JerseyClient
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     public Response createUserAccount() {
+        //create account
+        //send request to request service with account details
+
         return Response.ok(new UserService("test1", "test2")).build();
     }
 
