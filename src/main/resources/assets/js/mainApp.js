@@ -1,5 +1,6 @@
 $( window ).load(function(){
-        $('#test-btn').on('click', function(){
+        
+	$('#regist_btn').on('click', function(){
            $.ajax('/api/register/user', {
                 type:"POST",
                 data:getData(),
@@ -8,6 +9,34 @@ $( window ).load(function(){
                 },
            });
         });
+	
+	$('#log_btn').on('click', function(){
+        $.ajax('', {
+             type:"POST",
+             data:getData(),
+             success:function(response, status){
+                $('#user-container').html(response.Vorname+ ' ' + response.Nachname);
+             },
+        });
+     });
+	$('#update_btn').on('click', function(){
+        $.ajax('', {
+             type:"POST",
+             data:getData(),
+             success:function(response, status){
+                $('#user-container').html(response.Vorname+ ' ' + response.Nachname);
+             },
+        });
+     });
+	$('#trans_btn').on('click', function(){
+        $.ajax('', {
+             type:"POST",
+             data:getData(),
+             success:function(response, status){
+                $('#user-container').html(response.Vorname+ ' ' + response.Nachname);
+             },
+        });
+     });
     });
 
 function getData(){

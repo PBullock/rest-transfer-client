@@ -1,4 +1,5 @@
 body{
+font-size:18px;
 font-family:calibri;
 margin: 0px;
 padding: 0px;
@@ -24,20 +25,22 @@ padding: 0px;
 	border-radius:5px;
 	width:20%;
 	float:left;
-	background-color:#500000;
+	background-color:#5f7263;
 }
 .content p{
 	padding-left:15px;
 	color:white;
 }
 .content{
-	
 	border-radius:5px;
 	height:700px;
 	margin-left:10px;
 	float:left;
 	width:75%;
-	background-color:#500000;
+	background-color:#5f7263;
+}
+span{
+	color:#b9d6af;
 }
 #nav{
 	padding-left:0px;
@@ -48,7 +51,7 @@ padding: 0px;
 	padding-top:5px;
 }
 #nav li:hover{
-	background-color:#800000;
+	background-color:#b9d6af;
 }
 #nav a{
 	padding-left:55px;
@@ -67,4 +70,9 @@ padding: 0px;
 .register-form input{
 	width:300px;
 	border-width:0px;
+}
+.register-form textarea{
+	width:48%;
+	max-width:48%;
+	max-height:300px;
 }
