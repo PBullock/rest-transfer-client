@@ -13,7 +13,7 @@ public class RegisterService
     private String Vorname;
     
     @JsonProperty
-	private Date Geburtsdatum;
+	private String Geburtsdatum;
     
     @JsonProperty
 	private String Strasse;
@@ -24,7 +24,7 @@ public class RegisterService
     @JsonProperty
 	private String PLZ;
     
-    public RegisterService(String Nachname, String Vorname, Date Geburtsdatum, String Strasse, String Ort, String PLZ)
+    public RegisterService(String Nachname, String Vorname, String Geburtsdatum, String Strasse, String Ort, String PLZ)
     {
         this.Vorname = Vorname;
         this.Nachname = Nachname;
@@ -34,19 +34,52 @@ public class RegisterService
         this.PLZ = PLZ;
         
     }
-    public String getName() {
+
+    public String getNachname() {
         return Nachname;
     }
 
-    public void setName(String Nachname) {
-        this.Nachname = Nachname;
+    public void setNachname(String nachname) {
+        Nachname = nachname;
     }
 
-    public String getFirst_name() {
+    public String getVorname() {
         return Vorname;
     }
 
-    public void setFirst_name(String Vorname) {
-        this.Vorname = Vorname;
+    public void setVorname(String vorname) {
+        Vorname = vorname;
+    }
+
+    public String getGeburtsdatum() {
+        return Geburtsdatum;
+    }
+
+    public void setGeburtsdatum(String geburtsdatum) {
+        Geburtsdatum = geburtsdatum;
+    }
+
+    public String getStrasse() {
+        return Strasse;
+    }
+
+    public void setStrasse(String strasse) {
+        Strasse = strasse;
+    }
+
+    public String getOrt() {
+        return Ort;
+    }
+
+    public void setOrt(String ort) {
+        Ort = ort;
+    }
+
+    public String getPLZ() {
+        return PLZ;
+    }
+
+    public void setPLZ(String PLZ) {
+        this.PLZ = PLZ;
     }
 }

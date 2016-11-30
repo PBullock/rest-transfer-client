@@ -18,7 +18,7 @@ public class RegisterResource extends JerseyClient {
     public Response register(
             @FormParam("Nachname") String Nachname,
             @FormParam("Vorname") String Vorname,
-            @FormParam("Geburtsdatum") Date Geburtsdatum,
+            @FormParam("Geburtsdatum") String Geburtsdatum,
             @FormParam("Strasse") String Strasse,
             @FormParam("Ort") String Ort,
             @FormParam("PLZ") String PLZ){
