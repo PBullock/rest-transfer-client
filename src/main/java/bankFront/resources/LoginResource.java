@@ -3,10 +3,7 @@ package bankFront.resources;
 import bankFront.bankService.UserService;
 import org.glassfish.jersey.client.JerseyClient;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -16,20 +13,20 @@ public class LoginResource extends JerseyClient
     @Path("/auth")
     @POST
     @Produces(MediaType.APPLICATION_JSON)
-    public Response auth()
+    public Response auth(
+            @FormParam("email") String email,
+            @FormParam("password") String password
+    )
     {
+        //access database - check user
+        //create session if true
+
+        //return 200 if ok
+        // return 406 if not ok - bad username/password
+
         UserService userService = new UserService("test_user","customer");
 
         return Response.ok(userService).build();
     }
 
-
-    @Path("/test")
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    public Response test()
-    {
-        UserService userService = new UserService("test1","test2");
-        return Response.ok(userService).build();
-    }
 }

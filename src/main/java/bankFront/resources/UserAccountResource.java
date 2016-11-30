@@ -13,7 +13,13 @@ public class UserAccountResource extends JerseyClient
     @Path("/account")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getUserAccount() {
+    public Response getUserAccount(
+            @QueryParam("benutzer") Integer Benutzer
+        )
+    {
+        // load user details, build json, return ok if user exists - error if no user found
+
+
         return Response.ok(new UserService("test1", "test2")).build();
     }
 
@@ -30,7 +36,8 @@ public class UserAccountResource extends JerseyClient
     @Path("/account")
     @PUT
     @Produces(MediaType.APPLICATION_JSON)
-    public Response editUserAccount() {
+    public Response editUserAccount()
+    {
         return Response.ok(new UserService("test1", "test2")).build();
     }
 

@@ -3,6 +3,7 @@ package bankFront.resources;
 
 
 import bankFront.bankService.RegisterService;
+import com.sun.org.apache.xpath.internal.operations.Or;
 import org.glassfish.jersey.client.JerseyClient;
 
 import javax.ws.rs.*;
@@ -34,18 +35,32 @@ public class RegisterResource extends JerseyClient {
         target.register(String.class);
 
         WebTarget resourceTarget = target.path("register/user");
-        resourceTarget.queryParam("Name","test_name");
+
+//        resourceTarget.queryParam("Nachname",Nachname);
+//        resourceTarget.queryParam("Vorname", Vorname);
+//        resourceTarget.queryParam("Geburtsdatum",Geburtsdatum);
+//        resourceTarget.queryParam("Strasse",Strasse);
+//        resourceTarget.queryParam("Ort", Ort);
+//        resourceTarget.queryParam("PLZ", PLZ);
+
 
         Invocation.Builder invocationBuilder =
                 resourceTarget.request(MediaType.APPLICATION_JSON);
         //invocationBuilder.header("some-header", "true");
 
         Form form = new Form();
-        form.param("Name","test_name");
+        form.param("Nachname",Nachname);
+        form.param("Vorname", Vorname);
+        form.param("PLZ", PLZ);
+        form.param("Ort", Ort);
+        form.param("Strasse",Strasse);
+        form.param("Geburtsdatum",Geburtsdatum);
 
         Response response = invocationBuilder.post(Entity.form(form));
 
         RegisterService registerService = new RegisterService(Nachname, Vorname, Geburtsdatum, Strasse, Ort, PLZ);
         return Response.ok(registerService).build();
     }
+
+
 }

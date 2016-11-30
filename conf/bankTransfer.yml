@@ -8,7 +8,7 @@ server:
   adminConnectors:
     - type: http
       port: 18182
-consumableValue: s65d4f654g64dfg65d4fv645d
+consumableValue: s65d4f654g64dfg65d4fv645dü
 metrics:
   reporters:
     - type: console
