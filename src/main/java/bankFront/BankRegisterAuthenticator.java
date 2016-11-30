@@ -1,4 +1,4 @@
-package bankTransfer;
+package bankFront;
 
 import com.google.common.base.Optional;
 import io.dropwizard.auth.AuthenticationException;

@@ -1,4 +1,4 @@
-package bankTransfer;
+package bankFront;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.dropwizard.Configuration;

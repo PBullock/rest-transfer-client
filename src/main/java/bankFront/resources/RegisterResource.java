@@ -1,12 +1,9 @@
-package bankTransfer.resources;
+package bankFront.resources;
 
 import java.util.Date;
 
-import bankTransfer.bankService.RegisterService;
-import bankTransfer.bankService.UserService;
-
+import bankFront.bankService.RegisterService;
 import org.glassfish.jersey.client.JerseyClient;
-import org.objectweb.asm.commons.StaticInitMerger;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;

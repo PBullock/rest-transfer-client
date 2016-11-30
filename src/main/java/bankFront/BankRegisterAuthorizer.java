@@ -1,4 +1,4 @@
-package bankTransfer;
+package bankFront;
 
 import io.dropwizard.auth.Authorizer;
 

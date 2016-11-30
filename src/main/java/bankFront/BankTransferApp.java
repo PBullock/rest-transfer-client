@@ -1,10 +1,11 @@
-package bankTransfer;
+package bankFront;
 
-import bankTransfer.client.BankTransferClient;
-import bankTransfer.resources.LoginResource;
-import bankTransfer.resources.RegisterResource;
-import bankTransfer.resources.UserAccountResource;
-import bankTransfer.resources.UserTransferResource;
+import bankFront.client.BankTransferClient;
+import bankFront.resources.LoginResource;
+import bankFront.resources.RegisterResource;
+import bankFront.resources.UserAccountResource;
+import bankFront.resources.UserTransferResource;
+
 import io.dropwizard.Application;
 import io.dropwizard.assets.AssetsBundle;
 import io.dropwizard.auth.AuthDynamicFeature;

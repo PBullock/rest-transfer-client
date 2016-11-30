@@ -1,4 +1,4 @@
-package bankTransfer.bankService;
+package bankFront.bankService;
 
 import java.util.Date;
 

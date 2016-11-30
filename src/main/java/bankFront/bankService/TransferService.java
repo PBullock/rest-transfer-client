@@ -1,4 +1,4 @@
-package bankTransfer.bankService;
+package bankFront.bankService;
 
 /**
  * Created by Peter on 23/11/2016.
