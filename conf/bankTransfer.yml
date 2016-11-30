@@ -8,9 +8,10 @@ server:
   adminConnectors:
     - type: http
       port: 18182
-consumableValue: s65d4f654g64dfg65d4fv645dü
+consumableValue: s65d4f654g64dfg65d4fv645d
 metrics:
   reporters:
     - type: console
       timeZone: UTC
       output: stdout
+      

@@ -32,22 +32,42 @@
 		
 		<div  class="content" id="main">
 			<div id="uebersicht">
-			<p>Ihr aktueller Kontostand beträgt <!-- code zum fetchen des Bankkontos --> Euro</p>
+				<p>Ihr aktueller Kontostand beträgt <!-- code zum fetchen des Bankkontos --> Euro</p>
+				<br />
+				<br />
+				<br />
+				<br />
+				<br />
+				<br />
+				<p>Unter <b><a style="cursor:pointer; color:#b9d6af;" onClick='show("main_ums");'>Umsätze</a></b> 
+				können Sie Ihre letzten Transaktionen einsehen </p>
+				<br />
+				<br />
+				<br />
+				<p>Ihre weiteren möglichen Aktionen sind:</p>
+				<p><b><a style="cursor:pointer; color:#b9d6af;" onClick='show("main_trans");'>Überweisung</a></b> tätigen</p> 
+				<p>
 			</div>
 		</div>
 		
 		<!-- TRANSFER -->
 		
-		<div class="content" id="main_trans">
+		<div class="content" id="main_trans" style="display: none">
 			<div id="trans">
 			<p>Ihr aktueller Kontostand beträgt <!-- code zum fetchen des Bankkontos --> Euro</p>
 			</div>
-
+			<p>Falls Sie eine Überweisung tätigen möchten, geben Sie bitte die folgenden Daten in das Formular ein.
+			<form class="register-form">
+				<span>Kontonummer</span><br><input name="kontonummer" placeholder="Kontonummer" type="text"><br>
+				<span>Betrag</span><br><input name="Betrag" placeholder="00.00" type="text" pattern="\d+(\.\d{2})?"><br>
+				<span>Kommentar/Referenz</span><br><textarea name="kommentar"></textarea><br>
+				<input type="submit" id="trans_btn" value="&Uuml;berweisen" onclick="return false;">				
+			</form>
 		</div>
 		
 		<!-- UMSÄTZE -->
 		
-		<div class="content" id="main_ums">
+		<div class="content" id="main_ums" style="display: none">
 			<div id="umsaetze">
 			<p>Ihr aktueller Kontostand beträgt <!-- code zum fetchen des Bankkontos --> Euro</p>
 			</div>
@@ -55,26 +75,48 @@
 		
 		<!-- PERSÖNLICH -->
 			
-		<div class="content" id="main_person">
+		<div class="content" id="main_person" style="display: none">
 			<div id="person">
-				<p>Ihr aktueller Kontostand beträgt <!-- code zum fetchen des Bankkontos --> Euro</p>
+				<p>Ihr aktueller Kontostand beträgt <!-- code zum fetchen des Bankkontos --> Euro</p>			
+				<form class="register-form">
+				<p>Hier können Sie Ihre persönliche Informationen Ändern</p>
+				<b><span>Persönliche Daten</span></b><br>
+					<input name="Nachname" type="text" placeholder="Nachname"/><br />
+					<input name="Vorname" type="text" placeholder="Vorname:"/><br />
+					<input name="Geburtsdatum" type="text" placeholder="Geburtstage:"/><br />
+					<input name="Strasse" type="text" placeholder="Strasse:"/><br />
+					<input name="Ort" type="text" placeholder="Ort:"/><br />
+					<input name="PLZ" type="date" placeholder="PLZ:"/><br />
+					<input type="submit" id="update_btn" value="Aktualisieren" onclick="return false;">
+				</form>
 			</div>
 		</div>
 		
 		<!-- REGISTRIEREN -->
 			
-		<div class="content" id="main_regist">
+		<div class="content" id="main_regist" style="display: none">
 			<div id="regist">
-			<p>Bitte loggen Sie sich ein oder erstellen Sie ein neues Konto</p>	
-			
+			<p>Bitte loggen Sie sich ein oder erstellen Sie ein neues Konto</p>
+				
 				<form class="register-form">
+				<b><span>Einloggen</span></b><br>	
+					<input name="email" type="text" placeholder="E-Mail"/><br />
+					<input name="passwort" type="password" placeholder="Passwort"/><br />
+					<input type="submit" id="log_btn" value="Einloggen" onclick="return false;">					
+				</form>
+				<br>
+				<br>
+				<br>
+								
+				<form class="register-form">
+				<b><span>Registrieren</span></b><br>
 					<input name="Nachname" type="text" placeholder="Nachname"/><br />
 					<input name="Vorname" type="text" placeholder="Vorname:"/><br />
-					<input name="Geburtsdatum" type="date" placeholder="Geburtstage:"/><br />
+					<input name="Geburtsdatum" type="text" placeholder="Geburtstage:"/><br />
 					<input name="Strasse" type="text" placeholder="Strasse:"/><br />
 					<input name="Ort" type="text" placeholder="Ort:"/><br />
-					<input name="PLZ" type="text" placeholder="PLZ:"/><br />
-					<input type="submit" id="test-btn" value="Registrieren->" onclick="return false;">
+					<input name="PLZ" type="date" placeholder="PLZ:"/><br />
+					<input type="submit" id="regist_btn" value="Registrieren" onclick="return false;">
 				</form>
 				<div id="user-container"></div>
 			</div>
