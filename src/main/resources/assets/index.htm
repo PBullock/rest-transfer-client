@@ -9,29 +9,78 @@
 </head>
 <body>
 	<div id="wrapper">
-		<div id="header">XXX</div>
+		<div id="header">
+			<div id="logo">
+				<img src="img/banklogo.png">
+			</div>
+			<div id="usergr"><p>Willkommen <span id="user-container"></span></p></div>
+			<div id="unlogged"><p>Sie sind nicht eingeloggt <!-- wenn nicht eingeloggt --></p></div>			
+		</div>
 		<div id="sidebar">
 			<ul id="nav">
-				<li><a>Übersicht</a></li>
-				<li><a>Überweisung</a></li>
-				<li><a>Umsätze</a></li>
-				<li><a>Persönlich Daten</a></li>
+				<li><a onClick='show("main");'>Übersicht</a></li>
+				<li><a onClick='show("main_trans");'>Überweisung</a></li>
+				<li><a onClick='show("main_ums");'>Umsätze</a></li>
+				<li><a onClick='show("main_person");'>Persönlich Daten</a></li>
+				<!-- Nur wenn nicht eingeloggt/registireren anzeigen -->
+				<li><a onClick='show("main_regist");'>Registrieren/Einloggen</a></li>
+				<!-- Nur wenn nicht eingeloggt/registireren anzeigen -->
+			</ul>
 		</div>
-		<div id="main">
-			<div id="usergr"><!-- funktion user begrüssung --></div>
+		
+		<!-- ÜBERSICHT -->
+		
+		<div  class="content" id="main">
 			<div id="uebersicht">
 			<p>Ihr aktueller Kontostand beträgt <!-- code zum fetchen des Bankkontos --> Euro</p>
 			</div>
-
-			<form class="register-form">
-				<input name="name" type="text" placeholder="Name:"/>
-				<input name="first_name" type="text" placeholder="First Name:"/>
-				<input type="submit" id="test-btn" value="Register->" onclick="return false;">
-			</form>
-
-			<div id="user-container"></div>
 		</div>
-	</div>
+		
+		<!-- TRANSFER -->
+		
+		<div class="content" id="main_trans">
+			<div id="trans">
+			<p>Ihr aktueller Kontostand beträgt <!-- code zum fetchen des Bankkontos --> Euro</p>
+			</div>
+
+		</div>
+		
+		<!-- UMSÄTZE -->
+		
+		<div class="content" id="main_ums">
+			<div id="umsaetze">
+			<p>Ihr aktueller Kontostand beträgt <!-- code zum fetchen des Bankkontos --> Euro</p>
+			</div>
+		</div>
+		
+		<!-- PERSÖNLICH -->
+			
+		<div class="content" id="main_person">
+			<div id="person">
+				<p>Ihr aktueller Kontostand beträgt <!-- code zum fetchen des Bankkontos --> Euro</p>
+			</div>
+		</div>
+		
+		<!-- REGISTRIEREN -->
+			
+		<div class="content" id="main_regist">
+			<div id="regist">
+			<p>Bitte loggen Sie sich ein oder erstellen Sie ein neues Konto</p>	
+			
+				<form class="register-form">
+					<input name="Nachname" type="text" placeholder="Nachname"/><br />
+					<input name="Vorname" type="text" placeholder="Vorname:"/><br />
+					<input name="Geburtsdatum" type="text" placeholder="Geburtstage:"/><br />
+					<input name="Strasse" type="text" placeholder="Strasse:"/><br />
+					<input name="Ort" type="text" placeholder="Ort:"/><br />
+					<input name="PLZ" type="date" placeholder="PLZ:"/><br />
+					<input type="submit" id="test-btn" value="Registrieren->" onclick="return false;">
+				</form>
+				<div id="user-container"></div>
+			</div>
+		</div>
+			
+</div>
 </body>
 <script src="/js/mainApp.js"></script>
 </html>

@@ -1,23 +1,70 @@
 body{
+font-family:calibri;
 margin: 0px;
 padding: 0px;
+
 }
 #wrapper{
 	background-color:#f2f2f2;
 	width:100%;
+	height:1080px
 }
 #header{
 	height:150px;
-	background-color:blue;
+}
+#logo{
+	position:relative;
+}
+#logo img{
+	position:absolute;
+	left:35%;
 }
 #sidebar{
-	width:35%;
+	margin-left:10px;
+	border-radius:5px;
+	width:20%;
 	float:left;
-	background-color:red;
+	background-color:#500000;
 }
-#main{
-	background-color:green;
+.content p{
+	padding-left:15px;
+	color:white;
+}
+.content{
+	
+	border-radius:5px;
+	height:700px;
+	margin-left:10px;
+	float:left;
+	width:75%;
+	background-color:#500000;
+}
+#nav{
+	padding-left:0px;
+	list-style:none;
+}
+#nav li{
+	cursor:pointer;
+	padding-top:5px;
+}
+#nav li:hover{
+	background-color:#800000;
 }
 #nav a{
-	cursor:pointer;
+	padding-left:55px;
+	color:white;
+	
+}
+#user-container{
+	list-style:none;
+}
+#regist{
+	width:100%;
+}
+.register-form{
+	margin-left:35%;
+}
+.register-form input{
+	width:300px;
+	border-width:0px;
 }

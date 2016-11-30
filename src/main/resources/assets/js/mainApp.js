@@ -4,25 +4,23 @@ $( window ).load(function(){
                 type:"POST",
                 data:getData(),
                 success:function(response, status){
-                    var list = $('<ul></ul>');
-                   for(var key in response){
-                       console.log(key, response[key]);
-                       $(list).append($('<li>'+key+ '::' + response[key]+'</li>'));
-                   }
-
-                   $('#user-container').append(list);
+                   $('#user-container').html(response.Vorname+ ' ' + response.Nachname);
                 },
-
            });
         });
     });
 
 function getData(){
-
     var form = $('form.register-form');
     var data = form.serialize();
-    var dataArr = form.serializeArray();
+    //var dataArr = form.serializeArray();
 
     return data;
 
+}
+
+function show(pageClass){
+	$('.content').hide();
+	$('#'+pageClass).show();
+	
 }

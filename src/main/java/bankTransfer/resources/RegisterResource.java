@@ -1,7 +1,10 @@
 package bankTransfer.resources;
 
+import java.util.Date;
+
 import bankTransfer.bankService.RegisterService;
 import bankTransfer.bankService.UserService;
+
 import org.glassfish.jersey.client.JerseyClient;
 import org.objectweb.asm.commons.StaticInitMerger;
 
@@ -16,13 +19,17 @@ public class RegisterResource extends JerseyClient {
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     public Response register(
-            @FormParam("name") String name,
-            @FormParam("first_name") String first_name) {
-
+            @FormParam("Nachname") String Nachname,
+            @FormParam("Vorname") String Vorname,
+            @FormParam("Geburtsdatum") Date Geburtsdatum,
+            @FormParam("Strasse") String Strasse,
+            @FormParam("Ort") String Ort,
+            @FormParam("PLZ") String PLZ){
+    		
         //send request to register micro service
         //
 
-        RegisterService registerService = new RegisterService(name, first_name);
+        RegisterService registerService = new RegisterService(Nachname, Vorname, Geburtsdatum, Strasse, Ort, PLZ);
         return Response.ok(registerService).build();
     }
 }
