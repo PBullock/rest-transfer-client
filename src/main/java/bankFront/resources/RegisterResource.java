@@ -27,7 +27,7 @@ public class RegisterResource extends JerseyClient {
             @FormParam("Ort") String Ort,
             @FormParam("PLZ") String PLZ){
     		
-        //send request to register micro service
+        // send request to register micro service
         //
 
         WebTarget target =  this.target("http://localhost:18183/api/");
