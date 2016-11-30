@@ -1,8 +1,6 @@
-package bankTransfer.resources;
+package bankFront.resources;
 
-import bankTransfer.bankService.TransferService;
-import bankTransfer.bankService.UserService;
-import org.jboss.logging.Param;
+import bankFront.bankService.TransferService;
 
 
 import javax.ws.rs.*;

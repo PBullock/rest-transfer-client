@@ -1,4 +1,4 @@
-package bankTransfer.client;
+package bankFront.client;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;

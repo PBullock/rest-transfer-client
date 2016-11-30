@@ -1,4 +1,4 @@
-package bankTransfer.bankService;
+package bankFront.bankService;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

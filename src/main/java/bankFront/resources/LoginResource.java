@@ -1,8 +1,7 @@
-package bankTransfer.resources;
+package bankFront.resources;
 
-import bankTransfer.bankService.UserService;
+import bankFront.bankService.UserService;
 import org.glassfish.jersey.client.JerseyClient;
-import org.glassfish.jersey.client.JerseyWebTarget;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
