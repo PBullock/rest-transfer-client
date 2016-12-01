@@ -26,6 +26,7 @@ $( window ).load(function(){
              data:getData('login-form'),
              success:function(response, status){
                 $('#user-container').html(response.Vorname+ ' ' + response.Nachname);
+                window.bank_user['Kunden_ID'] = response.Kunden_ID;
              },
         });
      });
@@ -34,16 +35,16 @@ $( window ).load(function(){
              type:"POST",
              data:getData('update-form'),
              success:function(response, status){
-                $('#user-container').html(response.Vorname+ ' ' + response.Nachname);
+                    debugger;
              },
         });
      });
 	$('#trans_btn').on('click', function(){
-        $.ajax('', {
+        $.ajax('/api/user/transfer', {
              type:"POST",
              data:getData('transfer-form'),
              success:function(response, status){
-                $('#user-container').html(response.Vorname+ ' ' + response.Nachname);
+                debugger;
              },
         });
      });
@@ -61,8 +62,15 @@ function getData(form_id){
 
 }
 
-function show(pageClass){
-	$('.content').hide();
-	$('#'+pageClass).show();
-	
+function show(pageClass, checkLogin){
+
+    $('.content').hide();
+
+    if(checkLogin && ! window.bank_user['Kunden_ID']) {
+        $('#main_regist').show();
+    } else {
+        $('#'+pageClass).show();
+    }
+
+
 }

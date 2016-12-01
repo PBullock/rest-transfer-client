@@ -19,9 +19,9 @@
 		<div id="sidebar">
 			<ul id="nav">
 				<li><a onClick='show("main");'>Übersicht</a></li>
-				<li><a onClick='show("main_trans");'>Überweisung</a></li>
-				<li><a onClick='show("main_ums");'>Umsätze</a></li>
-				<li><a onClick='show("main_person");'>Persönlich Daten</a></li>
+				<li><a onClick='show("main_trans", true);'>Überweisung</a></li>
+				<li><a onClick='show("main_ums", true);'>Umsätze</a></li>
+				<li><a onClick='show("main_person", true);'>Persönlich Daten</a></li>
 				<!-- Nur wenn nicht eingeloggt/registireren anzeigen -->
 				<li><a onClick='show("main_regist");'>Registrieren/Einloggen</a></li>
 				<!-- Nur wenn nicht eingeloggt/registireren anzeigen -->
@@ -39,13 +39,13 @@
 				<br />
 				<br />
 				<br />
-				<p>Unter <b><a style="cursor:pointer; color:#b9d6af;" onClick='show("main_ums");'>Umsätze</a></b> 
+				<p>Unter <b><a style="cursor:pointer; color:#b9d6af;" onClick='show("main_ums", true);'>Umsätze</a></b>
 				können Sie Ihre letzten Transaktionen einsehen </p>
 				<br />
 				<br />
 				<br />
 				<p>Ihre weiteren möglichen Aktionen sind:</p>
-				<p><b><a style="cursor:pointer; color:#b9d6af;" onClick='show("main_trans");'>Überweisung</a></b> tätigen</p> 
+				<p><b><a style="cursor:pointer; color:#b9d6af;" onClick='show("main_trans", true);'>Überweisung</a></b> tätigen</p>
 				<p>
 			</div>
 		</div>

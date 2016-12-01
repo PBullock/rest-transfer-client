@@ -35,6 +35,9 @@ public class BankTransferApp extends Application<BankTransferConf>
         environment.jersey().register(new UserTransferResource());
         environment.jersey().register(new UserAccountResource());
 
+
+        /** can be used for authentication with HTTP Basic Authentication */
+        /*
         environment.jersey().register(new AuthDynamicFeature(
                 new BasicCredentialAuthFilter.Builder<User>()
                         .setAuthenticator(new BankRegisterAuthenticator())
@@ -44,6 +47,8 @@ public class BankTransferApp extends Application<BankTransferConf>
         environment.jersey().register(RolesAllowedDynamicFeature.class);
         //If you want to use @Auth to inject a custom Principal type into your resource
         environment.jersey().register(new AuthValueFactoryProvider.Binder<>(User.class));
+
+        */
     }
 
     private Client setupClient(Environment environment)
@@ -51,6 +56,9 @@ public class BankTransferApp extends Application<BankTransferConf>
         return new JerseyClientBuilder(environment).build("REST Client");
     }
 
+    /**
+     *  Set assets folder to Root "/" url - index.htm
+     * */
     @Override
     public void initialize(Bootstrap<BankTransferConf> bankTransferConfBootstrap)
     {

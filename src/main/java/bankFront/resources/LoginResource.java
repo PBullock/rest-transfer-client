@@ -5,6 +5,8 @@ import bankFront.data.UserDataAccess;
 import org.glassfish.jersey.client.JerseyClient;
 
 import javax.ws.rs.*;
+import javax.ws.rs.client.Invocation;
+import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -15,8 +17,8 @@ public class LoginResource extends JerseyClient
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     public Response auth(
-            @FormParam("email") String email,
-            @FormParam("passwort") String passwort
+            @FormParam("Kontonummer") String Kontonummer,
+            @FormParam("Passwort") String Passwort
     )
     {
         //access database - check user
@@ -26,11 +28,28 @@ public class LoginResource extends JerseyClient
         // return 406 if not ok - bad username/password
 
         UserDataAccess dao = new UserDataAccess();
-        dao.checkPassword("test", "test");
+        Boolean auth = dao.checkPassword(Kontonummer, Passwort);
 
-        UserService userService = new UserService("test_user","customer");
+        if(!auth) {
+            return Response.status(401).entity("{'message' : 'Bad login credentials'}").build();
+        }
 
-        return Response.ok(userService).build();
+        WebTarget target =  this.target("http://localhost:18183/api/");
+        target.register(String.class);
+
+        WebTarget resourceTarget = target.path("register/user")
+                .queryParam("Kontonummer", Kontonummer);
+
+        Invocation.Builder invocationBuilder =
+                resourceTarget.request(MediaType.APPLICATION_JSON);
+        Response userResponse = invocationBuilder.get();
+
+        if(200 != userResponse.getStatus()) {
+            return Response.status(418).entity("{'message':'something went wrong'}").build();
+        }
+
+
+        return Response.ok(userResponse.getEntity()).build();
     }
 
 }
