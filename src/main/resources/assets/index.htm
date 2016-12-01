@@ -57,7 +57,7 @@
 			<p>Ihr aktueller Kontostand beträgt <!-- code zum fetchen des Bankkontos --> Euro</p>
 			</div>
 			<p>Falls Sie eine Überweisung tätigen möchten, geben Sie bitte die folgenden Daten in das Formular ein.
-			<form class="register-form">
+			<form id="transfer-form" class="register-form">
 				<span>Kontonummer</span><br><input name="kontonummer" placeholder="Kontonummer" type="text"><br>
 				<span>Betrag</span><br><input name="Betrag" placeholder="00.00" type="text" pattern="\d+(\.\d{2})?"><br>
 				<span>Kommentar/Referenz</span><br><textarea name="kommentar"></textarea><br>
@@ -119,7 +119,7 @@
 					<input name="Passwort" type="password" placeholder="Passwort:"/><br />
 					<input type="submit" id="regist_btn" value="Registrieren" onclick="return false;">
 				</form>
-				<div class="message-container"></div>
+				<div class="error-message-container" style="display:none">Fehler: Bitte noch mal versuchen oder vieleicht Sie haben schon Registriert?</div>
 			</div>
 		</div>
 			

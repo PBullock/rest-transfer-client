@@ -1,12 +1,18 @@
 $( window ).load(function(){
         
 	$('#regist_btn').on('click', function(){
+	    $('.error-message-container').hide();
            $.ajax('/api/register/user', {
                 type:"POST",
                 data:getData('register-form'),
                 success:function(response, status){
                    $('#user-container').html(response.Vorname+ ' ' + response.Nachname);
                 },
+                statusCode:{
+                418: function(){
+                    $('.error-message-container').show();
+                    }
+                }
            });
         });
 	
@@ -31,7 +37,7 @@ $( window ).load(function(){
 	$('#trans_btn').on('click', function(){
         $.ajax('', {
              type:"POST",
-             data:getData(),
+             data:getData('transfer-form'),
              success:function(response, status){
                 $('#user-container').html(response.Vorname+ ' ' + response.Nachname);
              },

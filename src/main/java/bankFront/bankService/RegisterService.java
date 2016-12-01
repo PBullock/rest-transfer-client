@@ -27,6 +27,9 @@ public class RegisterService
     @JsonProperty
 	private String Passwort;
 
+    @JsonProperty
+	private String message;
+
     public RegisterService(String Nachname, String Vorname, String Geburtsdatum, String Strasse, String Ort, String PLZ, String Passwort)
     {
         this.Vorname = Vorname;
@@ -37,6 +40,14 @@ public class RegisterService
         this.PLZ = PLZ;
         this.Passwort = Passwort;
         
+    }
+
+    public RegisterService(String Nachname, String Vorname, String message)
+    {
+        this.Vorname = Vorname;
+        this.Nachname = Nachname;
+        this.message = message;
+
     }
 
     public String getNachname() {

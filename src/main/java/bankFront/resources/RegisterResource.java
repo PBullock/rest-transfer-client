@@ -52,9 +52,15 @@ public class RegisterResource extends JerseyClient {
 
         Response response = invocationBuilder.post(Entity.form(form));
 
+
         // @TODO: if ok response send details of new user back, or send error with message.
 
-        RegisterService registerService = new RegisterService(Nachname, Vorname, Geburtsdatum, Strasse, Ort, PLZ, Passwort);
+        RegisterService registerService = new RegisterService(Nachname, Vorname, "Danke");
+
+        if(200 != response.getStatus()) {
+            return Response.status(418).entity("{'message':'fail'}").build();
+        }
+
         return Response.ok(registerService).build();
     }
 
