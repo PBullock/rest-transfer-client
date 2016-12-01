@@ -1,6 +1,7 @@
 package bankFront.resources;
 
 import bankFront.bankService.UserService;
+import bankFront.data.UserDataAccess;
 import org.glassfish.jersey.client.JerseyClient;
 
 import javax.ws.rs.*;
@@ -15,7 +16,7 @@ public class LoginResource extends JerseyClient
     @Produces(MediaType.APPLICATION_JSON)
     public Response auth(
             @FormParam("email") String email,
-            @FormParam("password") String password
+            @FormParam("passwort") String passwort
     )
     {
         //access database - check user
@@ -23,6 +24,9 @@ public class LoginResource extends JerseyClient
 
         //return 200 if ok
         // return 406 if not ok - bad username/password
+
+        UserDataAccess dao = new UserDataAccess();
+        dao.checkPassword("test", "test");
 
         UserService userService = new UserService("test_user","customer");
 

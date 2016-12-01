@@ -11,9 +11,9 @@ $( window ).load(function(){
         });
 	
 	$('#log_btn').on('click', function(){
-        $.ajax('', {
+        $.ajax('/api/login/auth', {
              type:"POST",
-             data:getData(),
+             data:getData('login-form'),
              success:function(response, status){
                 $('#user-container').html(response.Vorname+ ' ' + response.Nachname);
              },
@@ -39,8 +39,11 @@ $( window ).load(function(){
      });
     });
 
-function getData(){
+function getData(form_id){
     var form = $('form.register-form');
+    if(form_id) {
+        form = $('form#' + form_id)
+    }
     var data = form.serialize();
     //var dataArr = form.serializeArray();
 

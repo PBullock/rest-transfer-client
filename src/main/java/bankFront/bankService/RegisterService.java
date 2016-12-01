@@ -24,7 +24,10 @@ public class RegisterService
     @JsonProperty
 	private String PLZ;
     
-    public RegisterService(String Nachname, String Vorname, String Geburtsdatum, String Strasse, String Ort, String PLZ)
+    @JsonProperty
+	private String Passwort;
+
+    public RegisterService(String Nachname, String Vorname, String Geburtsdatum, String Strasse, String Ort, String PLZ, String Passwort)
     {
         this.Vorname = Vorname;
         this.Nachname = Nachname;
@@ -32,6 +35,7 @@ public class RegisterService
         this.Strasse = Strasse;
         this.Ort = Ort;
         this.PLZ = PLZ;
+        this.Passwort = Passwort;
         
     }
 
@@ -82,4 +86,8 @@ public class RegisterService
     public void setPLZ(String PLZ) {
         this.PLZ = PLZ;
     }
+
+    public String getPasswort() { return Passwort; }
+
+    public void setPasswort(String passwort) { Passwort = passwort;  }
 }

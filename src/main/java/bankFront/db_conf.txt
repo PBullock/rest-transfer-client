@@ -1,0 +1,13 @@
+ #SQL_NAME=root
+ #SQL_PW=
+ #SQL_PORT=3306
+ #SQL_DB=bank1
+ #SQL_ADDRESS=localhost
+
+
+ SQL_NAME=Cnorki
+ SQL_PW=Qwertz123!
+ SQL_PORT=3306
+ SQL_DB=cnorki
+ SQL_ADDRESS=164.132.201.211
+
