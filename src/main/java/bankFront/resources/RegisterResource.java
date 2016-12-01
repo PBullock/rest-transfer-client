@@ -61,6 +61,23 @@ public class RegisterResource extends JerseyClient {
             return Response.status(418).entity("{'message':'fail'}").build();
         }
 
+        // get new konto for new customer - return in the response
+
+        WebTarget kontoTarget =  this.target("http://localhost:18185/api/");
+        kontoTarget.register(String.class);
+
+        WebTarget kontoResourceTarget = kontoTarget.path("account");
+
+
+        Invocation.Builder kontoInvocationBuilder =
+                kontoResourceTarget.request(MediaType.APPLICATION_JSON);
+        Form kontoForm = new Form();
+//        kontoForm.param();  //Kunden_ID,
+//        kontoForm.param();  //Dispo,
+//        kontoForm.param();  //Guthaben,
+
+        Response kontoResponse = kontoInvocationBuilder.post(Entity.form(kontoForm));
+
         return Response.ok(registerService).build();
     }
 

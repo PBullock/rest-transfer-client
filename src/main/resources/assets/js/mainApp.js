@@ -1,4 +1,6 @@
 $( window ).load(function(){
+
+    window.bank_user = {};
         
 	$('#regist_btn').on('click', function(){
 	    $('.error-message-container').hide();
@@ -7,6 +9,8 @@ $( window ).load(function(){
                 data:getData('register-form'),
                 success:function(response, status){
                    $('#user-container').html(response.Vorname+ ' ' + response.Nachname);
+
+
                 },
                 statusCode:{
                 418: function(){
@@ -28,7 +32,7 @@ $( window ).load(function(){
 	$('#update_btn').on('click', function(){
         $.ajax('', {
              type:"POST",
-             data:getData(),
+             data:getData('update-form'),
              success:function(response, status){
                 $('#user-container').html(response.Vorname+ ' ' + response.Nachname);
              },

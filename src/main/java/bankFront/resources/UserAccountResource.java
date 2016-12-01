@@ -14,7 +14,7 @@ public class UserAccountResource extends JerseyClient
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response getUserAccount(
-            @QueryParam("benutzer") Integer Benutzer
+            @QueryParam("Kunden_ID") Integer Benutzer
         )
     {
         // load user details, build json, return ok if user exists - error if no user found

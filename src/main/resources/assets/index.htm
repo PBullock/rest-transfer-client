@@ -78,7 +78,7 @@
 		<div class="content" id="main_person" style="display: none">
 			<div id="person">
 				<p>Ihr aktueller Kontostand beträgt <!-- code zum fetchen des Bankkontos --> Euro</p>			
-				<form class="register-form">
+				<form id="update-form" class="register-form">
 				<p>Hier können Sie Ihre persönliche Informationen Ändern</p>
 				<b><span>Persönliche Daten</span></b><br>
 					<input name="Nachname" type="text" placeholder="Nachname"/><br />
@@ -100,8 +100,8 @@
 				
 				<form id="login-form" class="register-form">
 				<b><span>Einloggen</span></b><br>	
-					<input name="email" type="text" placeholder="E-Mail"/><br />
-					<input name="passwort" type="password" placeholder="Passwort"/><br />
+					<input name="Kontonummer" type="text" placeholder="Kontonummer..."/><br />
+					<input name="Passwort" type="password" placeholder="Passwort"/><br />
 					<input type="submit" id="log_btn" value="Einloggen" onclick="return false;">					
 				</form>
 				<br>
