@@ -54,40 +54,40 @@ public class RegisterService
         return Nachname;
     }
 
-    public void setNachname(String nachname) {
-        Nachname = nachname;
+    public void setNachname(String Nachname) {
+        Nachname = Nachname;
     }
 
     public String getVorname() {
         return Vorname;
     }
 
-    public void setVorname(String vorname) {
-        Vorname = vorname;
+    public void setVorname(String Vorname) {
+        Vorname = Vorname;
     }
 
     public String getGeburtsdatum() {
         return Geburtsdatum;
     }
 
-    public void setGeburtsdatum(String geburtsdatum) {
-        Geburtsdatum = geburtsdatum;
+    public void setGeburtsdatum(String Geburtsdatum) {
+        Geburtsdatum = Geburtsdatum;
     }
 
     public String getStrasse() {
         return Strasse;
     }
 
-    public void setStrasse(String strasse) {
-        Strasse = strasse;
+    public void setStrasse(String Strasse) {
+        Strasse = Strasse;
     }
 
     public String getOrt() {
         return Ort;
     }
 
-    public void setOrt(String ort) {
-        Ort = ort;
+    public void setOrt(String Ort) {
+        Ort = Ort;
     }
 
     public String getPLZ() {
@@ -100,5 +100,5 @@ public class RegisterService
 
     public String getPasswort() { return Passwort; }
 
-    public void setPasswort(String passwort) { Passwort = passwort;  }
+    public void setPasswort(String Passwort) { Passwort = Passwort;  }
 }
