@@ -3,7 +3,7 @@ $( window ).load(function(){
 	$('#regist_btn').on('click', function(){
            $.ajax('/api/register/user', {
                 type:"POST",
-                data:getData(),
+                data:getData('register-form'),
                 success:function(response, status){
                    $('#user-container').html(response.Vorname+ ' ' + response.Nachname);
                 },

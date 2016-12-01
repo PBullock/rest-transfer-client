@@ -3,7 +3,6 @@ package bankFront.resources;
 
 
 import bankFront.bankService.RegisterService;
-import com.sun.org.apache.xpath.internal.operations.Or;
 import org.glassfish.jersey.client.JerseyClient;
 
 import javax.ws.rs.*;
@@ -17,6 +16,7 @@ import javax.ws.rs.core.Response;
 @Path("register")
 public class RegisterResource extends JerseyClient {
 
+
     @Path("/user")
     @POST
     @Produces(MediaType.APPLICATION_JSON)
@@ -26,27 +26,20 @@ public class RegisterResource extends JerseyClient {
             @FormParam("Geburtsdatum") String Geburtsdatum,
             @FormParam("Strasse") String Strasse,
             @FormParam("Ort") String Ort,
-            @FormParam("PLZ") String PLZ){
-    		
-        // send request to register micro service
-        //
+            @FormParam("PLZ") String PLZ,
+            @FormParam("Passwort") String Passwort
+    ){
 
+        // send request to register micro service
         WebTarget target =  this.target("http://localhost:18183/api/");
         target.register(String.class);
 
         WebTarget resourceTarget = target.path("register/user");
 
-//        resourceTarget.queryParam("Nachname",Nachname);
-//        resourceTarget.queryParam("Vorname", Vorname);
-//        resourceTarget.queryParam("Geburtsdatum",Geburtsdatum);
-//        resourceTarget.queryParam("Strasse",Strasse);
-//        resourceTarget.queryParam("Ort", Ort);
-//        resourceTarget.queryParam("PLZ", PLZ);
-
 
         Invocation.Builder invocationBuilder =
                 resourceTarget.request(MediaType.APPLICATION_JSON);
-        //invocationBuilder.header("some-header", "true");
+        //@TODO: add apikey to deader for authorisation
 
         Form form = new Form();
         form.param("Nachname",Nachname);
@@ -55,10 +48,13 @@ public class RegisterResource extends JerseyClient {
         form.param("Ort", Ort);
         form.param("Strasse",Strasse);
         form.param("Geburtsdatum",Geburtsdatum);
+        form.param("Passwort",Passwort);
 
         Response response = invocationBuilder.post(Entity.form(form));
 
-        RegisterService registerService = new RegisterService(Nachname, Vorname, Geburtsdatum, Strasse, Ort, PLZ);
+        // @TODO: if ok response send details of new user back, or send error with message.
+
+        RegisterService registerService = new RegisterService(Nachname, Vorname, Geburtsdatum, Strasse, Ort, PLZ, Passwort);
         return Response.ok(registerService).build();
     }
 
