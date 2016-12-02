@@ -3,6 +3,7 @@ package bankFront.resources;
 
 
 import bankFront.bankService.RegisterService;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.glassfish.jersey.client.JerseyClient;
 
 import javax.ws.rs.*;
@@ -12,6 +13,9 @@ import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.Form;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
 
 @Path("register")
 public class RegisterResource extends JerseyClient {
@@ -29,7 +33,7 @@ public class RegisterResource extends JerseyClient {
             @FormParam("PLZ") String PLZ,
             @FormParam("Passwort") String Passwort
     ){
-
+        RegisterService registerService = null;
         // send request to register micro service
         WebTarget target =  this.target("http://localhost:18183/api/");
         target.register(String.class);
@@ -50,35 +54,50 @@ public class RegisterResource extends JerseyClient {
         form.param("Geburtsdatum",Geburtsdatum);
         form.param("Passwort",Passwort);
 
-        Response response = invocationBuilder.post(Entity.form(form));
+        Response response1 = invocationBuilder.post(Entity.form(form));
 
 
         // @TODO: if ok response send details of new user back, or send error with message.
 
-        RegisterService registerService = new RegisterService(Nachname, Vorname, "Danke");
+        String registerJson = response1.readEntity(String.class);
+        ObjectMapper mapper = new ObjectMapper();
 
-        if(200 != response.getStatus()) {
+        try {
+             registerService = mapper.readValue(registerJson, RegisterService.class);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+        if(200 != response1.getStatus()) {
             return Response.status(418).entity("{'message':'fail'}").build();
         }
 
-        // get new konto for new customer - return in the response
 
-        WebTarget kontoTarget =  this.target("http://localhost:18185/api/");
+
+
+        //@TODO get new konto for new customer - return in the response
+
+       /* WebTarget kontoTarget =  this.target("http://localhost:18185/api/"); //account service url
         kontoTarget.register(String.class);
 
         WebTarget kontoResourceTarget = kontoTarget.path("account");
-
+        Form kontoForm = new Form();
+        kontoForm.param("Dispo", "5000");
+        kontoForm.param("Guthaben", "100");
+        kontoForm.param("Kunden_ID", ID);
+        kontoForm.param("Hauptkonto", "1");
 
         Invocation.Builder kontoInvocationBuilder =
                 kontoResourceTarget.request(MediaType.APPLICATION_JSON);
-        Form kontoForm = new Form();
-//        kontoForm.param();  //Kunden_ID,
-//        kontoForm.param();  //Dispo,
-//        kontoForm.param();  //Guthaben,
+        Response accountResponse = kontoInvocationBuilder.post(Entity.form(kontoForm));
+        Object account = accountResponse.getEntity();
 
-        Response kontoResponse = kontoInvocationBuilder.post(Entity.form(kontoForm));
+        Response kontoResponse = kontoInvocationBuilder.post(Entity.form(kontoForm));*/
 
-        return Response.ok(registerService).build();
+
+
+        return Response.ok().entity(registerService).build();
     }
 
 

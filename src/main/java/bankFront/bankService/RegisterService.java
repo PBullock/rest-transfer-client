@@ -26,9 +26,14 @@ public class RegisterService
     
     @JsonProperty
 	private String Passwort;
+    @JsonProperty
+	private Integer Kunden_ID;
 
     @JsonProperty
 	private String message;
+
+    // Default constructor
+    public RegisterService(){}
 
     public RegisterService(String Nachname, String Vorname, String Geburtsdatum, String Strasse, String Ort, String PLZ, String Passwort)
     {
