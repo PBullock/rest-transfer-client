@@ -1,6 +1,7 @@
 package bankFront.resources;
 
 import bankFront.bankService.TransferService;
+import org.glassfish.jersey.Beta;
 import org.glassfish.jersey.client.JerseyClient;
 
 
@@ -18,23 +19,29 @@ public class UserTransferResource extends JerseyClient{
     @Path("/transfer")
     @POST
     @Produces(MediaType.APPLICATION_JSON)
-    public Response createTransferTransaction(@QueryParam("user_id") String user_id)
+    public Response createTransferTransaction(
+            @FormParam("kontonummer") String glaeubiger,
+            @FormParam("Betrag") String Betrag,
+            @FormParam("kommentar") String Kommentar
+    )
     {
 
 
         WebTarget transferTarget = this.target("http://164.132.201.211:54321");
         transferTarget.register(String.class);
 
-        WebTarget transferResource = transferTarget.path("transfer");
+        WebTarget transferResource = transferTarget.path("transfer" ); // ?glaeubiger=" + glaeubiger + "&betrag=" + Betrag +"&schuldner=12762549&Anmerkung="+Kommentar
+
+        transferResource = transferResource.queryParam("glaeubiger", glaeubiger);
+        transferResource = transferResource.queryParam("betrag", Betrag);
+        transferResource = transferResource.queryParam("schuldner",  "12762549");
+        transferResource = transferResource.queryParam("Anmerkung",  Kommentar);
 
         Invocation.Builder invocationBuilder =
                 transferResource.request(MediaType.APPLICATION_JSON);
 
         Form transferForm = new Form();
-        transferForm.param("glaeubiger", "12762549");
-        transferForm.param("betrag",     "23.23");
-        transferForm.param("schuldner",  "45698742");
-        transferForm.param("anmerkung",  "test");
+
 
         Response response = invocationBuilder.post(Entity.form(transferForm));
 

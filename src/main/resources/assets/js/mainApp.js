@@ -9,7 +9,7 @@ $( window ).load(function(){
                 data:getData('register-form'),
                 success:function(response, status){
                    $('#user-container').html(response.Vorname+ ' ' + response.Nachname);
-
+                    $('#konto_repsonse').html('Ihre Kontonummer ist:  ' + response.Kontonummer)
 
                 },
                 statusCode:{
@@ -27,7 +27,17 @@ $( window ).load(function(){
              success:function(response, status){
                 $('#user-container').html(response.Vorname+ ' ' + response.Nachname);
                 window.bank_user['Kunden_ID'] = response.Kunden_ID;
+                $('#unlogged').hide();
+                $('#logged').show();
+
+                alert("eingelogged - Willkommen " + response.Vorname+ ' ' + response.Nachname);
              },
+             statusCode:{
+                 401:
+                     function(){
+                        alert('login fehler');
+                     }
+                 }
         });
      });
 	$('#update_btn').on('click', function(){
@@ -44,8 +54,8 @@ $( window ).load(function(){
              type:"POST",
              data:getData('transfer-form'),
              success:function(response, status){
-                debugger;
-             },
+                alert("Überweisung Erfolgreich!")
+             }
         });
      });
     });
