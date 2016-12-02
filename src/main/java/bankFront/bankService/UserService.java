@@ -14,6 +14,8 @@ public class UserService {
     @JsonProperty private String userType;
     @JsonProperty private String userPassword;
 
+    public UserService () {}
+
     public UserService(String userName, String userType)
     {
         this.userName = userName;

@@ -2,6 +2,7 @@ package bankFront.resources;
 
 
 
+import bankFront.bankService.AccountService;
 import bankFront.bankService.RegisterService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.glassfish.jersey.client.JerseyClient;
@@ -34,6 +35,7 @@ public class RegisterResource extends JerseyClient {
             @FormParam("Passwort") String Passwort
     ){
         RegisterService registerService = null;
+        AccountService accountService = null;
         // send request to register micro service
         WebTarget target =  this.target("http://localhost:18183/api/");
         target.register(String.class);
@@ -78,14 +80,14 @@ public class RegisterResource extends JerseyClient {
 
         //@TODO get new konto for new customer - return in the response
 
-       /* WebTarget kontoTarget =  this.target("http://localhost:18185/api/"); //account service url
+        WebTarget kontoTarget =  this.target("http://localhost:18185/api/"); //account service url
         kontoTarget.register(String.class);
 
         WebTarget kontoResourceTarget = kontoTarget.path("account");
         Form kontoForm = new Form();
         kontoForm.param("Dispo", "5000");
         kontoForm.param("Guthaben", "100");
-        kontoForm.param("Kunden_ID", ID);
+        kontoForm.param("Kunden_ID", registerService.getKunden_ID().toString());
         kontoForm.param("Hauptkonto", "1");
 
         Invocation.Builder kontoInvocationBuilder =
@@ -93,7 +95,17 @@ public class RegisterResource extends JerseyClient {
         Response accountResponse = kontoInvocationBuilder.post(Entity.form(kontoForm));
         Object account = accountResponse.getEntity();
 
-        Response kontoResponse = kontoInvocationBuilder.post(Entity.form(kontoForm));*/
+        Response kontoResponse = kontoInvocationBuilder.post(Entity.form(kontoForm));
+
+        String kontoJson = kontoResponse.readEntity(String.class);
+        mapper = new ObjectMapper();
+
+        try {
+            accountService = mapper.readValue(kontoJson, AccountService.class);
+            registerService.setKontonummer(accountService.getKontonummer());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
 
 

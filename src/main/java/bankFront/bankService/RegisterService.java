@@ -32,10 +32,13 @@ public class RegisterService
     @JsonProperty
 	private String message;
 
+    @JsonProperty
+    private Integer Kontonummer;
+
     // Default constructor
     public RegisterService(){}
 
-    public RegisterService(String Nachname, String Vorname, String Geburtsdatum, String Strasse, String Ort, String PLZ, String Passwort)
+    public RegisterService(String Nachname, String Vorname, String Geburtsdatum, String Strasse, String Ort, String PLZ, Integer Kunden_ID)
     {
         this.Vorname = Vorname;
         this.Nachname = Nachname;
@@ -43,7 +46,7 @@ public class RegisterService
         this.Strasse = Strasse;
         this.Ort = Ort;
         this.PLZ = PLZ;
-        this.Passwort = Passwort;
+        this.Kunden_ID = Kunden_ID;
         
     }
 
@@ -106,4 +109,28 @@ public class RegisterService
     public String getPasswort() { return Passwort; }
 
     public void setPasswort(String Passwort) { Passwort = Passwort;  }
+
+    public Integer getKunden_ID() {
+        return Kunden_ID;
+    }
+
+    public void setKunden_ID(Integer kunden_ID) {
+        Kunden_ID = kunden_ID;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public Integer getKontonummer() {
+        return Kontonummer;
+    }
+
+    public void setKontonummer(Integer kontonummer) {
+        Kontonummer = kontonummer;
+    }
 }
